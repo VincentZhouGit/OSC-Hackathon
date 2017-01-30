@@ -1,0 +1,82 @@
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import bootstrap.css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/dropzone.css">
+</head>
+
+
+<%- include('./partial/navDashboard.ejs') %>
+
+<nav  class="navbar ">
+    <ul class="nav navbar-nav top-nav">
+        <li class="navElement">
+            <a href="/dashboardHome">Applications to review</a>
+        </li>
+        <li class="navElement">
+            <a class="top-active" href="/dashboardApproved" >Approved ICOs</a>
+        </li>
+        <li class="navElement">
+            <a href="/analytics_page1">Data Analytics</a>
+        </li>
+        <li class="navElement">
+            <a href="">Edit Criteria</a>
+        </li>
+    </ul>
+</nav>
+
+
+<body>
+
+<div class="col-xs-12">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Max Raise</th>
+                <th>Expiry date</th>
+                <th>All Details</th>
+                <th>Prospectus</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Next Gen Securities</td>
+                <td>$100,000</td>
+                <td>2017-01-30</td>
+                <td><button type="button" class="btn btn-info">View</button></td>
+                <td><button type="button" class="btn btn-info">View</button></td>
+                <td style="color:green"><span class="glyphicon glyphicon-ok"></span></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--Import jQuery before bootstrap.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script src="js/jquery.form.min.js"></script>
+<script src="js/dropzone.js"></script>
+</body>
+</html>

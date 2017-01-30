@@ -1,0 +1,64 @@
+<html>
+    <%- include('./partial/head.ejs') %>
+    <%- include('./partial/navigation') %>
+    <body>
+        <div class="container">
+            <table class="table table-striped"> 
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>Pressure</th>
+                        <th>Temp.</th>
+                        <th>Humidity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i<city.length; i++){ %>
+                        <tr>
+                            <td><%= city[i].name %></td>
+                            <td><%= city[i].pressure %></td>
+                            <td><%= city[i].tempurature %></td>
+                            <td><%= city[i].humidity %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Dropdown
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+
+                    </ul>
+                </div>
+                <div class="p-vr-md">
+                    <button class="btn btn-default" onclick="alert()">Click me for an alert</button>
+                </div>
+                <div id="alertContainer" class="hidden">
+                    <div class="alert alert-success alert-dismissable" role="alert">
+                        <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;</button>Success
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        <span class="sr-only">40% Complete (success)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <!--Import jQuery before bootstrap.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    </body>
+</html>
+<script>
+function alert(){
+    $("#alertContainer").removeClass("hidden");
+}
+</script>

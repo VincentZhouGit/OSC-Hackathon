@@ -1,0 +1,94 @@
+<html>
+    <%- include('./partial/head.ejs') %>
+    <%- include('./partial/navigation.ejs') %>
+    <body>
+        <div class="container-fluid">
+            <div class="container">
+                <h2>RubixByDeloitte</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="text-center">This is an example of using bootstrap's column functionality.</p>
+                        <button class="btn btn-primary button-hover" onclick="getData()">Hover me!</button>
+                        <div id="stuart">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>This is an example of using bootstrap's column functionality.</p>
+                        <button class="btn btn-success button-hover" onclick="postData()">Post Data!</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>This is an example of using bootstrap's column functionality.</p>
+                        <button class="btn btn-danger button-hover" onclick="sockets()">Sockets!</button>
+                    </div>
+                </div>
+                <div class="row p-vr-md">
+                    <div class="col-xs-3">
+                        <div class="panel colored-panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Ticker</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row valign-wrapper">
+                                    <div class="col-xs-8 valign">
+                                        <b> Deploy Ticker:</b>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <img src="./img/deploy.png" alt="Deploy Contract" class="contract-image" onclick="deploy()" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="background-black">
+                <div class="padding-xl">
+                    <img src="./img/graph.png" alt="graph" class="image-rotate center-block img-responsive">
+                </div>
+            </div>
+        </div>
+      <!--Import jQuery before bootstrap.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    </body>
+</html>
+<script>
+var socket = io();
+
+
+function sockets(){
+    socket.emit('contractDeployment',{ socket: "test contract: ", contract: "ticker" });
+}
+
+
+function postData(){
+    var rubixData={team: "rubix", details: "we rock", building: "amazing dapps"}
+    $.ajax({
+        type: "POST",
+        url: "/postdata",
+        data: JSON.stringify(rubixData),
+        contentType: "application/json",
+        success: function(data){
+            console.log(data);
+        },
+        error: function(err){
+            console.log(err);
+        }
+    })
+}
+
+function getData(){
+    $.ajax({
+        type: "GET",
+        url: "/data",
+        success: function(req){
+            console.log(req);
+            $("#stuart").text("Name: " + req.name + " Abilities: " + req.abilities + " PowerLevel: " + req.powerlevel);
+        },
+        error: function(err){
+            console.log(err);
+        }
+    })
+}
+</script>

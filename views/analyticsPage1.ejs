@@ -1,0 +1,61 @@
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import bootstrap.css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/dropzone.css">
+    <link rel="stylesheet" href="./css/analytics.css">
+</head>
+
+
+<%- include('./partial/navDashboard.ejs') %>
+
+<nav  class="navbar ">
+    <ul class="nav navbar-nav top-nav">
+        <li class="navElement">
+            <a href="/dashboardHome">Applications to review</a>
+        </li>
+        <li class="navElement">
+            <a href="/dashboardApproved" >Approved ICOs</a>
+        </li>
+        <li class="navElement">
+            <a class="top-active" href="/analytics_page1">Data Analytics</a>
+        </li>
+        <li class="navElement">
+            <a href="">Edit Criteria</a>
+        </li>
+    </ul>
+</nav>
+
+
+
+<body>
+
+<div  style="margin-left: 20px;" class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active" ><a href="/analytics_page1">ICO Landscape</a></li>
+                 <li><a href="/analytics_page3">ICO Crawler</a></li>
+		<li><a href="/analytics_page2">Charts</a></li>
+            </ul><br>
+        </div>
+
+        <div class="col-sm-7">
+            <img src="img/graphs/graph.png" >
+        </div>
+
+        <br>
+
+    </div>
+</div>
+
+</body>
+</html>
+

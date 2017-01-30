@@ -1,0 +1,5 @@
+#!/bin/bash
+
+geth init res/genesis.json
+geth --rpc --rpccorsdomain "*" --rpcapi "web3,eth,personal,admin" --rpcport 8545 \
+--rpcaddr "localhost"  --mine --keystore res/keystore --unlock 0 --password <(echo lol) console

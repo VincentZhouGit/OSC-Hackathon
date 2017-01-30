@@ -1,0 +1,214 @@
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import bootstrap.css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/app.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="css/dropzone.css">
+</head>
+
+
+
+<%- include('./partial/navDashboard.ejs') %>
+
+<nav  class="navbar ">
+    <ul class="nav navbar-nav top-nav">
+        <li class="navElement">
+            <a class="top-active" href="/dashboardHome">Applications to review</a>
+        </li>
+        <li class="navElement">
+            <a href="/dashboardApproved" >Approved ICOs</a>
+        </li>
+        <li class="navElement">
+            <a href="/analytics_page1">Data Analytics</a>
+        </li>
+        <li class="navElement">
+            <a href="">Edit Criteria</a>
+        </li>
+    </ul>
+</nav>
+
+
+<body>
+
+
+<div class="col-xs-12">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Max Raise</th>
+                <th>Expiry date</th>
+                <th>All Details</th>
+                <th>Prospectus</th>
+                <th>Decision</th>
+            </tr>
+            </thead>
+
+            <tbody id="_table">
+            <tr>
+                <td>Next Gen Securities</td>
+                <td>$100,000</td>
+                <td>2017-01-30</td>
+                <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">View</button></td>
+                <td><button type="button" class="btn btn-info">View</button></td>
+                <td>
+                    <button type="button" class="btn btn-success" onclick="onApprove()">Approve</button>
+                    <button type="button" class="btn btn-danger">Refuse&Send Comments</button>
+                </td>
+            </tr>
+            <tr>
+                <td>BitChain</td>
+                <td>$80,000</td>
+                <td>2017-05-01</td>
+                <td><button type="button" class="btn btn-info">View</button></td>
+                <td><button type="button" class="btn btn-info">View</button></td>
+                <td>
+                    <button type="button" class="btn btn-success">Approve</button>
+                    <button type="button" class="btn btn-danger">Refuse&Send Comments</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Big Data Lab$</td>
+                <td>$13,000</td>
+                <td>2017-02-01</td>
+                <td><button type="button" class="btn btn-info">View</button></td>
+                <td><button type="button" class="btn btn-info">View</button></td>
+                <td>
+                    <button type="button" class="btn btn-success">Approve</button>
+                    <button type="button" class="btn btn-danger">Refuse&Send Comments</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ICO details</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td>Description of offering:</td>
+                        <td>Token Crowdsale</td>
+                    </tr>
+                    <tr>
+                        <td>Type of business</td>
+                        <td>Technology</td>
+                    </tr>
+                    <tr>
+                        <td>Financial structure</td>
+                        <td>DAO</td>
+                    </tr>
+                    <tr>
+                        <td>Entry-phase</td>
+                        <td>ICO</td>
+                    </tr>
+
+                    <tr>
+                        <td>Supply of tokens</td>
+                        <td>80,000,000</td>
+                    </tr>
+
+                    <tr>
+                        <td>Token name</td>
+                        <td>NGS</td>
+                    </tr>
+                    <tr>
+                        <td>Max raise amount</td>
+                        <td>$5,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Opening date</td>
+                        <td>12-01-2016</td>
+                    </tr>
+                    <tr>
+                        <td>Expiry date</td>
+                        <td>12-25-2016</td>
+                    </tr>
+                    <tr>
+                        <td>Jurisdiction for arbitration</td>
+                        <td>Ontario</td>
+                    </tr>
+                    <tr>
+                        <td>Expiry date</td>
+                        <td>12-25-2016</td>
+                    </tr>
+
+                    <tr>
+                        <td>Description of management:</td>
+                    </tr>
+                    <tr>
+                        <td>CEO</td>
+                        <td>Iliana Oris Valiente</td>
+                    </tr>
+                    <tr>
+                        <td>CTO</td>
+                        <td>Janison Sivarajah</td>
+                    </tr>
+                    <tr>
+                        <td>COO</td>
+                        <td>Nelia Teixeira</td>
+                    </tr>
+
+
+                    </tbody>
+
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!--Import jQuery before bootstrap.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script src="js/jquery.form.min.js"></script>
+<script src="js/dropzone.js"></script>
+<script src="js/bootstrap-waitingfor.js"></script>
+<script src="js/contacts.bundle.js"></script>
+</body>
+
+<script>
+    function onApprove(){
+            contracts = new Contracts();
+
+            waitingDialog.show('Validating Token...');
+            var animation=waitingDialog.animate();
+            setTimeout(function () {
+                waitingDialog.hide();
+                waitingDialog.stopAnimate(animation);
+                window.location.href = "/dashboardApproved";
+            }, 4000);
+
+
+    }
+</script>
+</html>

@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+var repl = require('repl');
+var session = repl.start({prompt: ' > ', ignoreUndefined: true});
+var Web3 = require('web3');
+var host = process.argv[2] || 'http://localhost:8545';
+var web3 = new Web3(new Web3.providers.HttpProvider(host));
+web3.eth.defaultAccount = web3.eth.accounts[0];
+session.context.web3 = web3;
+var Contracts = require('../lib/contracts');
+var contracts = new Contracts();
+session.context.contracts = contracts;

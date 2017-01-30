@@ -1,0 +1,76 @@
+#!/usr/bin/python
+import requests
+import json
+import sys
+from pylab import *
+
+
+visited_addresses = []
+
+
+def get_transactions(address, degree):
+	if address in visited_addresses or degree == 0:
+		return []
+
+	print "Getting degree " + str(degree) + " transactions for " + address + "..."
+	visited_addresses.append(address)
+	request = 'http://api.etherscan.io/api?module=account&action=txlist&address=' + address + '&startblock=0&endblock=99999999&sort=asc&apikey=RZAZS4BMIJ4M6Z1N38UAVDY32KW1H79NQR'
+	try:
+		response = requests.get(request)
+		if not response.status_code // 100 == 2:
+			print "Error: unexpected response {}".format(response)
+			return []
+
+		content = json.loads(response.content)
+		transactions = content['result']
+		if degree == 1:
+			return transactions
+
+		for transaction in transactions:
+			from_addr = transaction['from']
+			to_addr = transaction['to']
+			transactions = transactions + get_transactions(to_addr, degree-1)
+			transactions = transactions + get_transactions(from_addr, degree-1)
+		return transactions
+	except requests.exceptions.RequestException as e:
+		print "Error: {}".format(e)
+		return []
+
+
+
+total = 0
+subtotals = []
+names = []
+for line in open('dat/tokens', 'r'):
+	line = line.replace("\n", "")
+	line = line.split(",")
+	name,address = line[0],line[1]
+	names.append(name)
+	subtotal = 0
+	transactions = get_transactions(address, 1)
+	print len(transactions)
+	for transaction in transactions:
+		if transaction['to'].lower() == address.lower():
+			subtotal +=  int(transaction['value'])
+	subtotals.append(len(transactions))
+
+
+total        = sum(subtotals)
+distribution = map(lambda x: float(x)/total*100, subtotals)
+
+
+
+for i in range(len(names)):
+	print names[i] + ': ' + str(distribution[i]) + '\n'
+
+
+
+figure(1, figsize=(6,6))
+ax = axes([0.1, 0.1, 0.8, 0.8])
+
+pie(distribution, labels=names,
+                autopct='%1.1f%%', shadow=True, startangle=90)
+
+title('Transaction Volume Across ICO\'s', bbox={'facecolor':'0.8', 'pad':5})
+
+show()

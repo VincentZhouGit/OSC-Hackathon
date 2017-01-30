@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>NEXT GEN SECURITIES</title>
+		<style>
+			#osc-seal {
+				position:absolute;
+				right:0px;
+				bottom:0px;
+				vertical-align: middle;
+			}
+			.arrow {
+				/*-webkit-animation: bounce 0.4s infinite alternate;
+				-moz-animation: bounce 0.4s infinite alternate;
+				animation: bounce 0.4s infinite alternate;*/
+				width: 50px;
+				height: 90px;
+			}
+			@-webkit-keyframes bounce {
+				to { -webkit-transform: scale(0.8); }
+			}
+			@-moz-keyframes bounce {
+				to { -moz-transform: scale(0.8); }
+			}
+			@keyframes bounce {
+				to { transform: scale(0.8); }
+			}
+			a.button {
+			    -webkit-appearance: button;
+			    -moz-appearance: button;
+				appearance: button;
+				text-decoration: none;
+			}
+			.ribbon {
+				background-color: #3d150a;
+				overflow: hidden;
+				white-space: nowrap;
+				position: absolute;
+				left: 1165px;
+				top: 49px;
+				-webkit-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				transform: rotate(45deg);
+				-webkit-box-shadow: 0 0 10px #888;
+				-moz-box-shadow: 0 0 10px #888;
+				box-shadow: 0 0 10px #888;
+			}
+			.ribbon a {
+			  border: 1px solid #faa;
+			  color: #fff;
+			  display: block;
+			  font: bold 125% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			  margin: 1px 0;
+			  padding: 10px 50px;
+			  text-align: center;
+			  text-decoration: none;
+			  text-shadow: 0 0 5px #444;
+			}
+			body {
+				font-family: Arial;
+				background: #000000;
+				margin: 0px;
+				overflow: hidden;
+			}
+			.header-link:hover {
+				text-decoration: none;
+				color: #92d400;
+			}
+			.header-link:hover {
+				text-decoration: none;
+				color: #92d400;
+			}
+			.header-link {
+				text-decoration: none;
+				color: #FFFFFF;
+
+			}
+			.header {
+			 	font-family:Arial;
+				height:50px;
+				text-align: left;
+				padding-left: 100px;
+				width:100%;
+				line-height: 50px;
+				vertical-align: middle;
+				position:absolute;
+				color:#92d400;
+				top:0px;
+				left:0px;
+				background: black;
+				font-size:25px;
+				border-bottom: 0.5px solid #A6D785;
+				z-index: 10;
+			}
+			.footer {
+				font-family:Arial;
+				height:50px;
+				text-align: left;
+				padding-left: 100px;
+				width:100%;
+				line-height: 50px;
+				vertical-align: middle;
+				position:absolute;
+				color:#92d400;
+				bottom:0px;
+				left:0px;
+				background: black;
+				font-size:18px;
+				border-top: 1px solid #A6D785;
+			}
+			.slides-container {
+				position:absolute;
+				left: 230px;
+				top: 140px;
+				width: 1360px;
+				height: 700px;
+				z-index:11;
+				background: rgba(0, 0, 0, 0.91);
+				overflow:hidden;
+				border:1px solid #A6D785;
+			}
+			div.header-left
+			{
+			  float: left;
+			  width: 480px;
+			}
+			div.header-right
+			{
+			  position: absolute;
+			  right: 300px;
+			  z-index: 999;
+			  width: 300px;
+			}
+			.loader {
+				visibility:hidden;
+				position:relative;
+				top:-80px;
+				left:435px;
+				border: 16px solid #f3f3f3; /* Light grey */
+				border-top: 16px solid #3498db; /* Blue */
+				border-radius: 50%;
+				width: 55px;
+				height: 55px;
+				animation: spin 2s linear infinite;
+				-webkit-animation: spin 2s linear infinite;
+				-moz-animation: spin 2s linear infinite;
+				z-index: 999;
+			}
+
+			@keyframes spin {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }
+			}
+			@-webkit-keyframes spin {
+				0% { -webkit-transform: rotate(0deg); }
+				100% { -webkit-transform: rotate(360deg); }
+			}
+			@-moz-keyframes spin {
+				0% { -moz-transform: rotate(0deg); }
+				100% { -moz-transform: rotate(360deg); }
+			}
+		</style>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">	
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-left"><b>NEXT GEN SECURITIES</b></div>
+			<div class="header-right">
+				<a href="#/0" class="header-link">HOME</a>  <a href="#/1"  class="header-link">BUY</a>  <a href="#/2"  class="header-link">ABOUT</a>
+			</div>
+		</div>
+
+		<div class="slides-container">
+			<div style="position:absolute;right:20px;bottom:100px;font-size:14px;color:#92d400;font-family: Arial">Follows OSC ICO standard</div>
+			<div id="osc-seal">
+				<img class="seal" src="img/osc-logo.gif" style="display:block;border:none;background:rgba(0,0,0,0);box-shadow: none;">
+			</div>
+			<div class="reveal">
+				<div class="slides">
+					<section id="info">
+						<h2><span style="color:#92d400">NEXT GEN</span> SECURITIES</h2><br><br>
+						<div>TIME LEFT:<div id="countdown"></div></div> <br><br>
+						<div>PRICE:</div><div>$3 / Token</div><br>
+						<div class="arrow-container" style="vertical-align:middle">
+							<a href="#/1"  style="position:relative;top:-50px;padding-right:10px;color:#92d400">Buy</a><a href="#/1"><img class="arrow" src="img/arrow.png" style="border:none;background:rgba(0,0,0,0);box-shadow: none;"></a>
+						</div>
+					</section>	
+		 
+					<section id="buy">
+						<h2>Buy tokens here</h2>
+						<div style="font-size:22px">Please submit your e-mail address along with your Ethereum address to process the purchase.</div><br>
+						<div style="font-size:26px">Ethereum Address</div><input type="text" value="" style="font-size:20px;height:40px;width:500px;text-align: center" id="ethaddress"/><br><br>
+						<div style="font-size:26px">E-mail Address</div><input type="text" value="" style="font-size:20px;height:40px;width:500px;text-align: center" id="emailaddress"/><br><br>
+						<div style="font-size:26px">Number of Tokens</div><input type="text" value="" style="font-size:20px;height:40px;width:500px;text-align: center" id="quantity"/><br><br>
+						<button style="width:150px;height:75px;background-color: #92d400;font-size:40px;" onclick="buy()" id="buybutton">Buy</button>
+						<div class="loader" id="buyloader" style="border: 16px solid #f3f3f3;border-top: 16px solid #92d400;animation: spin 2s linear infinite;"></div>
+					</section>
+		 
+					<section id="team">
+						<h3>The Team</h3><br>
+						<div style="text-align: center">
+							<div style="float:left;text-align: center;">CEO</div>
+							<div style="display:inline;text-align: center;">CTO</div>
+							<div style="float:right;text-align: center;">COO</div>
+						</div>
+					</section>
+		 
+					<section id="result">
+						<h3>Thank you</h3>
+						<div style="font-size:26px">A receipt has been sent to your e-mail address. The NEXT GEN team looks forward to providing further updates as the ICO progresses.</div>
+						<br>
+						<div style="font-size: 24px;color: #92d400">Confirmation number: <div id="txhash"></div></div>
+					</section>			
+
+					</div>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/contracts.js"></script>
+	 	<script src="js/web3.js"></script>
+
+		<script>
+
+			// Required, even if empty.
+			Reveal.initialize({
+				progress:false,
+				controls:false,
+				slideNumber: false
+			});
+		</script>
+
+		<div class=footer>OSC Compliant Initial Coin Offering</div>
+
+		<script src="js/three.js"></script>
+		<script src="js/Projector.js"></script>
+		<script src="js/CanvasRenderer.js"></script>
+		<script src="js/stats.min.js"></script>
+		<script src="js/tween.min.js"></script>
+
+		<script>
+			//var nodeHost = "54.146.182.193"; //mo's server
+			//var nodeHost = "54.85.153.173"; //audit node 1
+			var nodeHost = "localhost";
+			
+			var nodePort = 8545;
+			var web3 = new Web3(new Web3.providers.HttpProvider("http://" + nodeHost + ":" + nodePort));
+			
+			var ethAddress = web3.eth.accounts[0];
+			//var ethAddress = "0x060151005cd071a23599a87c76ec5ce9bee15d7a"; //"janison" account on mo's node
+			//var ethAddress = "5";//web3.eth.accounts[0];
+			
+			var contractAddress = "0xcfd90c207fb5b1f2c7f8b2cd56ddec17ac266036";
+			var ABI = contractABI.abi;
+			console.log("ABI: " + JSON.stringify(ABI));
+			var token = web3.eth.contract(ABI).at(contractAddress);
+			
+			document.getElementById('ethaddress').value = ethAddress;
+			
+			//sanity check
+			console.log("block number: " + web3.eth.blockNumber);
+			console.log("ethAddress balance: " + web3.eth.getBalance(ethAddress));
+
+			function buy(){
+				var buyerAddress = document.getElementById('ethaddress').value;
+				var buyerEmail = document.getElementById('emailaddress').value;
+				var quantity = document.getElementById('quantity').value;
+
+				//start the spinny thing
+				document.getElementById('buybutton').style.visibility = 'hidden';
+				document.getElementById('buyloader').style.visibility = 'visible';
+				
+				/*//TEMP
+				setTimeout(function(){
+					document.getElementById('buybutton').style.visibility = 'visible';
+					document.getElementById('buyloader').style.visibility = 'hidden';
+					document.getElementById('quantity').value = "";
+					//set TX HASH
+					window.location.href = '#/3'; //relative to domain
+				}, 5000);*/
+
+				token.buy.sendTransaction(quantity, {from:buyerAddress, value:quantity*parseInt(token.weiPerToken().toString()), gas:4700000}, function(err, res){
+					console.log("txHash: " + res);
+					document.getElementById('txhash').innerHTML = res;
+
+					var events = token.allEvents();
+					events.watch(function(err, res){
+
+						if(res.event == "BuySuccess"){
+
+							document.getElementById('buybutton').style.visibility = 'visible';
+							document.getElementById('buyloader').style.visibility = 'hidden';
+							document.getElementById('quantity').value = "";
+							window.location.href = '#/3'; //relative to domain
+
+						}
+
+					});
+				});
+				
+				
+				//send transaction to buy tokens
+				//var contract = null;
+				//call buy function with callback
+					//callback is a watch that waits for buy completed event
+						//on completed event, reset visibilities, go to #/3
+			}
+
+			var end = new Date('01/01/2017 12:00 AM');
+
+		    var _second = 1000;
+		    var _minute = _second * 60;
+		    var _hour = _minute * 60;
+		    var _day = _hour * 24;
+		    var timer;
+
+		    function showRemaining() {
+		        var now = new Date();
+		        var distance = end - now;
+		        if (distance < 0) {
+
+		            clearInterval(timer);
+		            document.getElementById('countdown').innerHTML = 'EXPIRED!';
+
+		            return;
+		        }
+		        var days = Math.floor(distance / _day);
+		        var hours = Math.floor((distance % _day) / _hour);
+		        var minutes = Math.floor((distance % _hour) / _minute);
+		        var seconds = Math.floor((distance % _minute) / _second);
+
+		        document.getElementById('countdown').innerHTML = days + 'days  ';
+		        document.getElementById('countdown').innerHTML += hours + 'hrs  ';
+		        document.getElementById('countdown').innerHTML += minutes + 'mins  ';
+		        document.getElementById('countdown').innerHTML += seconds + 'secs ';
+		    }
+
+    		timer = setInterval(showRemaining, 1000);	
+
+			var container, stats;
+			var camera, scene, renderer;
+			
+			var raycaster;
+			var mouse;
+			init();
+			animate();
+			function init() {
+				container = document.createElement( 'div' );
+				container.style.background = 'black';
+				document.body.appendChild( container );
+				var info = document.createElement( 'div' );
+				info.style.position = 'absolute';
+				info.style.top = '10px';
+				info.style.width = '100%';
+				info.style.textAlign = 'center';
+				//info.innerHTML = '<a href="http://threejs.org" target="_blank">three.js</a> - clickable objects';
+				container.appendChild( info );
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.y = 300;
+				camera.position.z = 500;
+				scene = new THREE.Scene();
+				var geometry = new THREE.BoxGeometry( 100, 100, 100 );
+				var colors = [0x7FFF00, 0x92d400, 0x545454, 0xbababa, 0xeeeeee];
+
+				for ( var i = 0; i < 20; i ++ ) {
+					var randomColor= Math.floor((Math.random() * 5) + 1)-1;
+					//console.log(randomColor);
+					//var randomColor = Math.random() * 0xffffff;
+					var object = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { color: colors[randomColor], opacity: 0.5 } ) );
+					Math.floor((Math.random() * 10) + 1);
+					object.position.x = Math.random() * 800 - 400;
+					object.position.y = Math.random() * 800 - 400;
+					object.position.z = Math.random() * 800 - 400;
+					object.scale.x = Math.random() * 2 + 1;
+					object.scale.y = Math.random() * 2 + 1;
+					object.scale.z = Math.random() * 2 + 1;
+					object.rotation.x = Math.random() * 2 * Math.PI;
+					object.rotation.y = Math.random() * 2 * Math.PI;
+					object.rotation.z = Math.random() * 2 * Math.PI;
+					scene.add( object );
+				}
+				
+				//
+				
+				raycaster = new THREE.Raycaster();
+				mouse = new THREE.Vector2();
+				renderer = new THREE.CanvasRenderer();
+				//renderer.setClearColor( 0xf0f0f0 );
+				renderer.setClearColor( 0x000000 );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild(renderer.domElement);
+				stats = new Stats();
+				//container.appendChild( stats.dom );
+				//document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+				//document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+				//
+				window.addEventListener( 'resize', onWindowResize, false );
+			}
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+
+			
+			/* Dont need clickable objects
+
+			function onDocumentTouchStart( event ) {
+				
+				event.preventDefault();
+				
+				event.clientX = event.touches[0].clientX;
+				event.clientY = event.touches[0].clientY;
+				onDocumentMouseDown( event );
+			}
+
+			function onDocumentMouseDown( event ) {
+				event.preventDefault();
+				mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
+				mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+				raycaster.setFromCamera( mouse, camera );
+				var intersects = raycaster.intersectObjects( scene.children );
+				if ( intersects.length > 0 ) {
+					new TWEEN.Tween( intersects[ 0 ].object.position ).to( {
+						x: Math.random() * 800 - 400,
+						y: Math.random() * 800 - 400,
+						z: Math.random() * 800 - 400 }, 2000 )
+					.easing( TWEEN.Easing.Elastic.Out).start();
+					new TWEEN.Tween( intersects[ 0 ].object.rotation ).to( {
+						x: Math.random() * 2 * Math.PI,
+						y: Math.random() * 2 * Math.PI,
+						z: Math.random() * 2 * Math.PI }, 2000 )
+					.easing( TWEEN.Easing.Elastic.Out).start();
+				}
+				
+				// Parse all the faces
+				//for ( var i in intersects ) {
+				//	intersects[ i ].face.material[ 0 ].color.setHex( Math.random() * 0xffffff | 0x80000000 );
+				//}
+				
+			}
+			*/
+
+			//
+			function animate() {
+				requestAnimationFrame( animate );
+				render();
+				stats.update();
+			}
+
+			var radius = 600;
+			var theta = 0;
+			function render() {
+				TWEEN.update();
+				theta += 0.2;
+				camera.position.x = radius * Math.sin( THREE.Math.degToRad( theta ) );
+				camera.position.y = radius * Math.sin( THREE.Math.degToRad( theta ) );
+				camera.position.z = radius * Math.cos( THREE.Math.degToRad( theta ) );
+				camera.lookAt( scene.position );
+				renderer.render( scene, camera );
+			}
+		</script>
+
+	</body>
+</html>

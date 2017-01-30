@@ -1,0 +1,72 @@
+#!/usr/bin/env node
+var fs = require('fs');
+var accounts = require('../lib/accounts');
+var host = process.argv[2] || 'http://localhost:8545';
+var sample_osc_tokens = require('../lib/tokens/sample_osc');
+var Web3 = require('web3');
+var web3 = new Web3(new Web3.providers.HttpProvider(host));
+web3.eth.defaultAccount = web3.eth.accounts[0];
+var _regulator = accounts.ricky;
+var compiled = require('../lib/contracts/compiled.json');
+var OSC_abi = JSON.parse(compiled.contracts.OSC.abi)
+var OSC_bytecode = compiled.contracts.OSC.bin;
+var OSCToken_abi = JSON.parse(compiled.contracts.OSC_Token.abi);
+var oscTokenContract = web3.eth.contract(OSCToken_abi);
+var oscContract = web3.eth.contract(OSC_abi);
+var instances = [];
+var count = 0;
+console.log("Creating OSC contract...");
+
+var osc = oscContract.new(
+   _regulator,
+   {
+     from: web3.eth.accounts[0], 
+     data: OSC_bytecode, 
+     gas: '4700000'
+   }, function (e, contract){
+    if (typeof contract.address !== 'undefined') {
+    	instances.push({address:contract.address, name:'OSC'});
+
+		console.log("OSC Contract Created at ", contract.address);
+		console.log("------------------------------------------------------");
+
+		console.log("OSC Contract Event Handler Setup");
+		console.log("------------------------------------------------------");
+		
+		events = contract.allEvents({fromBlock: 0, toBlock: 'latest'});
+		
+		events.watch(function(err, res){
+
+			if(res.event == "TokenCreated"){
+				count++;
+				instances.push({address: res.args.token, name: 'OSC_Token'});
+
+				if(count == sample_osc_tokens.length){
+					fs.writeFileSync('./lib/contracts/instances.json', JSON.stringify(instances));
+					console.log("Finished writing instances file");
+				}
+			}
+
+		});
+
+		for (var i = 0 ; i < sample_osc_tokens.length; i++) {
+			var sample = sample_osc_tokens[i];
+			console.log("Creating sample osc token with: ");
+			console.log("\t totalSupply:",sample.totalSupply);
+			console.log("\t weiCap:", sample.weiCap);
+			console.log("\t founder:", sample.founder);
+			console.log("\t startBlock:", sample.startBlock);
+			console.log("\t endBlock:", sample.endBlock);
+			
+			osc.createToken.sendTransaction(sample.totalSupply,
+							sample.weiCap,
+							sample.weiPerToken,
+							sample.founder,
+							sample.startBlock,
+							sample.endBlock, {gas:4700000});
+
+			console.log("---------------------------------------------");
+		}
+		//fs.writeFileSync('./lib/contracts/instances.json', JSON.stringify(instances));
+    }
+ });
